@@ -1,0 +1,328 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex justify-content-center">
+      <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+        <a class="navbar-brand brand-logo" href="/home"><img src="/assets/logo.png" alt="logo"/>
+
+        </a>
+        <h6>MAGUINI</h6>
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-sort-variant"></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+      <ul class="navbar-nav mr-lg-4 w-100">
+        <li class="nav-item nav-search d-none d-lg-block w-100">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="search">
+                <i class="mdi mdi-magnify"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-right">
+
+        <li class="nav-item nav-profile dropdown">
+
+          <div class="item-thumbnail" class="py-1">
+            <img src="/assets/iconpro.jpg" style="width:30px;" alt="image" class="profile-pic">
+
+        </div>
+            <span class="nav-profile-name" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent" >{{nom}}</span>
+        </li>
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="/login-admin" data-toggle="dropdown">
+            <i class="mdi mdi-logout" (click)="logout()"></i>
+            <span  (click)="logout()"> Deconnexion</span>
+          </a>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " href="/home">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Accueil</span>
+          </a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/liste-livreur">
+            <i class="mdi mdi-account-multiple menu-icon"></i>
+            <span class="menu-title">Les livreurs</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ajoutlivreur">
+            <i class="mdi mdi-account-plus menu-icon"></i>
+            <span class="menu-title">Ajout Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/noter-livreur">
+            <i class=" mdi mdi-brush menu-icon"></i>
+            <span class="menu-title">Noter Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/trajet">
+            <i class="mdi mdi-truck-delivery menu-icon"></i>
+            <span class="menu-title">Trajets</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="/register-login" aria-expanded="false" aria-controls="auth">
+            <i class="mdi mdi-account menu-icon"></i>
+            <span class="menu-title">Nouveau Admin</span>
+
+          </a>
+
+        </li>
+
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="d-flex justify-content-between flex-wrap">
+              <div class="d-flex align-items-end flex-wrap">
+                <div class="mr-md-3 mr-xl-5">
+                  <h2>Bienvenue,</h2>
+                  <h4  class="mb-md-0">{{nom}}</h4>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="row" id="proBanner">
+          <div class="col-md-12 grid-margin">
+            <div class="card bg-gradient-primary  mt-2 mt-xl-0 border-0">
+              <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap">
+                <p class="mb-0 text-white font-weight-medium"> Les statistiques de Maguini               </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body dashboard-tabs p-0">
+                <ul class="nav nav-tabs px-4" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Chiffres</a>
+                  </li>
+
+                </ul>
+                <div class="tab-content py-0 px-0">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="d-flex flex-wrap justify-content-xl-between">
+
+                      <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                        <i class="mdi mdi-account mr-3 icon-lg text-danger"></i>
+                        <div class="d-flex flex-column justify-content-around">
+                          <small class="mb-1 text-muted">Compte Utilisateurs</small>
+                          <h5 class="mr-2 mb-0">{{totalUtili}}</h5>
+                        </div>
+                      </div>
+                      <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                        <i class="mdi mdi-account-key mr-3 icon-lg text-success"></i>
+                        <div class="d-flex flex-column justify-content-around">
+                          <small class="mb-1 text-muted">Admins</small>
+                          <h5 class="mr-2 mb-0">{{totalAdmin}}</h5>
+                        </div>
+                      </div>
+                      <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                        <i class="mdi mdi-walk mr-3 icon-lg text-warning"></i>
+                        <div class="d-flex flex-column justify-content-around">
+                          <small class="mb-1 text-muted">Livreurs</small>
+                          <h5 class="mr-2 mb-0">{{totalLivreur}}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Statistiques des livreurs</h4>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>
+                              Livreur
+                            </th>
+                            <th>
+                              Nom
+                            </th>
+                            <th>
+                              Moyen de Transport
+                            </th>
+                            <th>
+                              Note
+                            </th>
+                            <th>
+                              Progression de la Note
+                            </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr *ngFor="let rv of livreur">
+                            <td class="py-1">
+                              <img [src]="rv.picByte" alt="image"/>
+                            </td>
+                            <td>
+                              {{rv.prenom}} {{rv.nom}}
+                            </td>
+                            <td>
+                              {{rv.moyen_transport}}
+                            </td>
+                            <td>
+                              <ng-container *ngIf="rv.note==null; else elseTemplate">
+                                0
+                              </ng-container>
+                              <ng-template #elseTemplate>
+                                {{rv.note}}%
+                              </ng-template>
+
+
+                            </td>
+                            <td>
+                              <div class="progress">
+
+                                <div class="progress-bar bg-danger" role="progressbar" [style.width.%]="rv.note" [aria-valuenow]="rv.note" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Comptes Utilisateurs</h4>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>
+                              Identifiant
+                            </th>
+                            <th>
+                              Nom d'ulisateur
+                            </th>
+                            <th>
+                              Email
+                            </th>
+
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr *ngFor="let rv of user">
+                            <ng-container *ngIf="rv.role!='Admin'
+                            ; else elseTemplate">
+                            <td>
+                              {{rv.id}}
+                            </td>
+                            <td>
+                              {{rv.usename}}
+                            </td>
+                            <td>
+                              {{rv.email}}
+                            </td>
+                            <td><i class=" fa fa-trash" (click)="supprimer(rv.id)" style="color: red;"> </i></td>
+                            </ng-container>
+                            <ng-template #elseTemplate>
+
+                            </ng-template>
+
+
+
+
+
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+
+  </div>
+  <!-- page-body-wrapper ends -->
+
+
+</div>

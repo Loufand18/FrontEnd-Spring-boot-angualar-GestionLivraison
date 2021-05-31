@@ -1,0 +1,199 @@
+<div class="tm-main-content" id="top">
+  <div class="tm-top-bar-bg"></div>
+  <div class="tm-top-bar" id="tm-top-bar">
+      <div class="container">
+          <div class="row">
+              <nav class="navbar navbar-expand-lg narbar-light">
+                  <a class="navbar-brand mr-auto" href="#">
+                      <img src="/assets/logo.png" alt="Site logo">
+                      Maguini
+                  </a>
+                  <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="/accueil">Accueil<span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/about">A propos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/login-admin">Admin</a>
+                      </li>
+
+
+                  </ul>
+
+              </div>
+
+
+              <div >
+                <ng-container *ngIf="!nom; else elseTemplate">
+                  <i class="mdi mdi-login"></i>
+                  <span (click)="Connecter()">Se connecter</span>
+                </ng-container>
+                <ng-template #elseTemplate>
+
+                  <i class="mdi mdi-logout"></i>
+                  <span (click)="logout()"> Deconnexion</span>
+                </ng-template>
+
+              </div>
+
+
+                <!--button  class=pull-right class="btn btn-primary " (click)="logout()" style="align-items: flex-end;" id="btnSubmit">Déconnexion</button>
+
+              <!--button class=pull-right class="btn btn-primary " style="align-items: flex-end;" id="btnSubmit">connexion</button-->
+
+          </nav>
+      </div> <!-- row -->
+  </div> <!-- container -->
+</div> <!-- .tm-top-bar -->
+
+<div class="tm-page-wrap mx-auto">
+  <section class="tm-banner">
+      <div class="tm-container-outer tm-banner-bg">
+          <div class="container">
+
+              <div class="row tm-banner-row tm-banner-row-header">
+                  <div class="col-xs-12">
+                      <div class="tm-banner-header">
+                          <p class=" font-italic tm-banner-subtitle">Trouvons des livreurs</p><br>
+                          <a href="#ici" class="tm-down-arrow-link"><i class="fa fa-2x fa-angle-down tm-down-arrow"></i></a>
+                      </div>
+                  </div>  <!-- col-xs-12 -->
+              </div> <!-- row -->
+              <div class="row tm-banner-row" id="tm-section-search">
+
+                  <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                      <div class="form-row tm-search-form-row">
+                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                              <label for="inputCity">Source</label>
+                              <input name="source" [(ngModel)]="source" type="text" class="form-control" id="inputCity" placeholder="Taper votre source...">
+                          </div>
+                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                            <label for="inputCity">Destination</label>
+                            <input name="destination" [(ngModel)]="destination" type="text" class="form-control" id="inputCity" placeholder="Taper votre destination...">
+                        </div>
+
+                      </div> <!-- form-row -->
+                      <div class="form-row tm-search-form-row">
+
+                          <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                              <label for="btnSubmit">&nbsp;</label>
+                              <button type="submit" (click)="getMeilleursLivreurs(source,destination)" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Vailder</button>
+                          </div>
+                      </div>
+                  </form>
+
+              </div> <!-- row -->
+              <div class="tm-banner-overlay"></div>
+          </div>  <!-- .container -->
+      </div>     <!-- .tm-container-outer -->
+    </section>
+
+
+
+
+
+  <section class="p-5 tm-container-outer tm-bg-gray ">
+    <div class="container">
+      <div class="gallary-header text-center">
+        <div class="row text-center pt-3">
+          <div class="col-lg-6 m-auto">
+            <marquee behavior="alternate"><h1 >{{titre}}</h1></marquee>
+              <h2>
+               {{paragraphe}}
+              </h2>
+          </div>
+      </div>
+
+      </div><!--/.gallery-header-->
+
+    </div><!--/.container-->
+    <!--div class="row">
+      <div class="column" *ngFor="let rv of livreur">
+        <div class="card">
+          <img [src]="rv.livreur.picByte"  style="width:100%;height:250px">
+          <h4><b>{{rv.livreur.prenom}} {{rv.livreur.nom}}</b></h4>
+          <p>{{rv.trajet.source}} - {{rv.trajet.destination}}</p>
+        </div>
+      </div>
+    </div-->
+    <!--div class="table-responsive">
+      <table class="table table-striped">
+
+        <tbody>
+
+            <tr >
+              <td *ngFor="let rv of livreur" class="py-1">
+
+                  <div class="card " style="width: 20rem;height: 0%;" (click)="valider(rv.livreur.id)">
+                    <img [src]="rv.livreur.picByte" class="card-img-top img-thumbnail" alt="Avatar" style="width:100%;height:250px">
+                    <div class="container">
+                      <br>
+                      <h4><b>{{rv.livreur.prenom}} {{rv.livreur.nom}}</b></h4>
+                      <p>{{rv.trajet.source}} - {{rv.trajet.destination}}</p>
+
+                  </div>
+                  </div>
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+    </div-->
+
+  <div class="row" id="ici" >
+      <div class="col-12 col-md-4 p-5 mt-3" *ngFor="let rv of livreur" >
+          <a href="#" *ngIf="rv.trajet.length>0"><img [src]="rv.picByte" style="width:280px;height: 280px;" class="rounded-circle img-fluid border"></a>
+          <h2 class="text-center mt-3 mb-3" *ngIf="rv.trajet.length>0" >{{rv.trajet[0].source}} - {{rv.trajet[0].destination}}</h2>
+          <p class="text-center" *ngIf="rv.trajet.length>0"><a class="btn " style="background-color: #69c6ba; color: white;" (click)="valider(rv.id)">Plus d'infos</a></p>
+      </div>
+
+  </div>
+  <div *ngIf="titre=='OUPS !'">
+    <p class="text-center"><a class="btn " style="background-color: #69c6ba; color: white;" (click)="back()">Retour</a></p>
+  </div>
+    <!--div class="card-deck card-data" *ngFor="let rv of livreur"-- >
+      <!--div class="card">
+        <img class="card-img-top" class="rounded-circle" [src]="rv.picByte" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div-->
+
+      <!--div class="card ">
+        <img class="card-img-top" class="rounded-circle"[src]="rv.picByte" alt="Card image cap">
+        <span class="icon section-icon">
+          <i class="fa fa-quote-left" aria-hidden="true"></i>
+        </span>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+
+    </div-->
+
+  </section>
+
+  <footer class="tm-container-outer">
+      <p class="mb-0">Copyright © <span class="tm-current-year">2021</span> Your Company
+
+      Designed by <a rel="nofollow" href="#" target="_parent">Fallou</a></p>
+  </footer>
+</div>
+</div>

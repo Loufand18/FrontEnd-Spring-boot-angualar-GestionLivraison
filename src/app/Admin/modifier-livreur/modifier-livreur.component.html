@@ -1,0 +1,78 @@
+<div class="col-md-6" style="width: 700;">
+  <div class="product-card d-flex flex-row align-items-center">
+    <div class="">
+      <form [formGroup]="magasinForm" >
+        <div class="form-group">
+          <label for="id">Identifant</label>
+          <input id="id" class="form-control" type="text" formControlName="id"
+            [(ngModel)]="magasin.id">
+
+          <label for="prenom">Prenom</label>
+          <input id="prenom" class="form-control" type="text" formControlName="prenom"
+            [(ngModel)]="magasin.prenom">
+          <div *ngIf="prenom.errors?.pattern" [ngClass]="'error'">
+            Ce prenom est invalide.
+          </div>
+
+
+          <label for="nom">Nom </label>
+          <input id="nom" class="form-control" type="text" formControlName="nom" [(ngModel)]="magasin.nom">
+          <div *ngIf="nom.errors?.pattern" [ngClass]="'error'">
+            Votre nom n'est valable.
+          </div>
+
+          <label for="numTel">Telephone</label>
+          <input id="numTel" class="form-control" type="text" formControlName="numTel" [(ngModel)]="magasin.numTel">
+          <div *ngIf="numTel.errors">
+            <div *ngIf="numTel.errors?.pattern" [ngClass]="'error'">
+              Ce numero de telephone est invalide.
+            </div>
+          </div>
+
+          <label for="idad">Adresse</label>
+          <input id="idad" class="form-control" type="text" formControlName="adresse" [(ngModel)]="magasin.adresse">
+          <div *ngIf="adresse.errors?.pattern" [ngClass]="'error'">
+            Cet adresse n'est pas valable.
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" class="form-control" type="text" formControlName="email" [(ngModel)]="magasin.email">
+          <div *ngIf="email.errors?.pattern" [ngClass]="'error'">
+            Cet adresse email n'est pas valable.
+          </div>
+
+          <label for="idvi">Moyen Transport</label>
+          <select class="form-control" id="exampleFormControlSelect2" formControlName="moyen_transport" value="Voiture" placeholder="Voiture" [(ngModel)]="magasin.moyen_transport" name="transport" >
+            <option>Voiture</option>
+            <option>Moto</option>
+          </select>
+          <div *ngIf="moyen_transport.errors?.pattern" [ngClass]="'error'">
+            Cette valide n'est pas valable.
+          </div>
+        </div>
+         <div class="form-group">
+          <div class="input-group col-xs-12">
+            <input type="file" class="form-control file-upload-info" name="photo"  (change)="onFileChanged($event)" accept="image/*"   placeholder="Upload Image">
+          </div>
+        </div>
+          <!--ng-container *ngIf="!charger;else sinon">
+            <label class="image-upload-container btn btn-bwm">
+              <span>Selectionnez une image</span>
+              <input #imageInput type="file" accept="image/*" >
+            </label>
+            <button class="btn btn-success" type="button"
+              [disabled]="encharge || selectedFile==null">Valider l'image </button>
+          </ng-container>
+          <ng-template #sinon>
+            <div class="text-center"> <img *ngIf="magasin.photo!=null" [src]="magasin.photo" width="200"> </div>
+            <button class="btn btn-success" type="button"  [disabled]="encharge">Changer l'image
+            </button>
+          </ng-template-->
+          <button type="submit" class="btn btn-success mr-2"  (click)="Valider()">Mettre a jour</button>
+          <button class="btn btn-primary" (click)="annuler()">Annuler</button>
+
+      </form>
+</div>
+
+  </div>
+</div>

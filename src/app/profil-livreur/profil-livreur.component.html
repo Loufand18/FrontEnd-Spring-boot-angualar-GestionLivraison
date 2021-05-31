@@ -1,0 +1,117 @@
+<div class="tm-main-content" id="top">
+  <div class="tm-top-bar-bg"></div>
+  <div class="tm-top-bar" id="tm-top-bar">
+      <div class="container">
+          <div class="row">
+              <nav class="navbar navbar-expand-lg narbar-light">
+                  <a class="navbar-brand mr-auto" href="#">
+                      <img src="/assets/logo.png" alt="Site logo">
+                      Maguini
+                  </a>
+                  <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="/accueil">Accueil<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login-admin">Admin</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <div >
+              <ng-container *ngIf="!nom; else elseTemplate">
+                <i class="mdi mdi-login"></i>
+                <span (click)="Connecter()">Se connecter</span>
+              </ng-container>
+              <ng-template #elseTemplate>
+
+                <i class="mdi mdi-logout"></i>
+                <span (click)="logout()"> Deconnexion</span>
+              </ng-template>
+
+            </div>
+
+          </nav>
+      </div> <!-- row -->
+  </div> <!-- container -->
+</div> <!-- .tm-top-bar -->
+
+<div class="tm-page-wrap mx-auto">
+  <section class="tm-banner">
+      <div class="tm-container-outer tm-banner-bg p-3 mb-2 bg-light text-dark">
+
+
+            <aside class="profile-card tm-container-outer" style="background-color: #69c6ba;">
+              <header>
+                <!-- here’s the avatar -->
+                <a target="_blank" href="#">
+                  <img [src]="key.picByte" style="height: 120px;" class="hoverZoomLink">
+                </a>
+
+                <!-- the username -->
+                <h1>
+                        {{key.prenom}} {{key.nom}}
+                      </h1>
+
+                <!-- and role or location -->
+                <h3>
+                        {{key.trajet[0].source}}-{{key.trajet[0].destination}}
+                      </h3>
+
+              </header>
+
+              <!-- bit of a bio; who are you? -->
+              <div class="profile-bio">
+
+
+                <strong > Adresse:{{key.adresse}}</strong><br>
+                <strong >Tel:{{key.numTel}}</strong> <br>
+                <strong >Email:{{key.email}}</strong><br>
+                <strong >Moyen Transport:{{key.moyen_transport}}</strong><br>
+
+                <strong *ngIf="key.trajet.length>=2">Autres Trajets:</strong><br>
+                <strong *ngFor="let i of key.trajet" >
+                  <span *ngIf="key.trajet[0].source!=i.source && key.trajet[0].destination!=i.destination">{{i.source}}-{{i.destination}}
+
+                  </span>
+                </strong>
+
+
+
+              </div>
+
+              <!-- some social links to show off -->
+
+            </aside>
+
+
+      <!-- .container -->
+      </div>     <!-- .tm-container-outer -->
+    </section>
+
+
+
+
+
+
+
+
+
+    <footer class="tm-container-outer">
+      <p class="mb-0">Copyright © <span class="tm-current-year">2021</span> Your Company
+
+      Designed by <a rel="nofollow" href="#" target="_parent">Fallou</a></p>
+  </footer>
+</div>
+</div>

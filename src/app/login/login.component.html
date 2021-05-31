@@ -1,0 +1,39 @@
+
+<div class="main">
+
+
+
+  <!-- Sing in  Form -->
+  <div class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="/assets/signin-image.jpg" alt="sing up image"></figure>
+                <a href="/register" class="signup-image-link">Creer un Compte</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Se connecter</h2>
+                <form method="POST" class="register-form" id="login-form">
+                    <div class="form-group">
+                        <label for="your_name"><i style="color: #69c6ba" class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="your_name" id="your_name" required [(ngModel)]=" loginname " placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i   style="color: #69c6ba" class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="your_pass" required [(ngModel)]="password" id="your_pass" placeholder="Mot de passe"/>
+                    </div>
+
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" style="background-color: #69c6ba; color: white;" (click)="login()" id="signin" class="form-submit" value="Se connecter"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+</div>
+

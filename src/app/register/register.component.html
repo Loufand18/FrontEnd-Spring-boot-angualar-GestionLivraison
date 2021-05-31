@@ -1,0 +1,42 @@
+<div class="main">
+
+  <!-- Sign up form -->
+  <div class="signup">
+      <div class="container">
+          <div class="signup-content">
+              <div class="signup-form">
+                  <h2 class="form-title">S'inscrire</h2>
+                  <form method="POST" [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()" class="register-form" id="register-form">
+                      <div class="form-group">
+                          <label for="usename"><i style="color: #69c6ba " class="zmdi zmdi-account material-icons-name"></i></label>
+                          <input type="text" name="usename" id="name" placeholder="Utilisateur" formControlName="usename"/>
+                      </div>
+                      <div class="form-group">
+                          <label for="email"><i  style="color: #69c6ba " class="zmdi zmdi-email"></i></label>
+                          <input type="email" name="email" id="email" class="form-control form-control-user"  formControlName="email" placeholder="Email"/>
+                      </div>
+                      <div class="form-group">
+                          <label for="password"><i style="color: #69c6ba " class="zmdi zmdi-lock"></i></label>
+                          <input type="password" name="password"  class="form-control form-control-user" id="password" formControlName="password" placeholder="Mot de passe"/>
+                      </div>
+                      <div class="form-group">
+                          <label for="ppwd"><i style="color: #69c6ba " class="zmdi zmdi-lock"></i></label>
+                          <input type="password" name="ppwd"  class="form-control form-control-user" id="ppwd" formControlName="ppwd"  placeholder="Repeter mot de passe"/>
+                      </div>
+
+                      <div class="form-group form-button">
+                          <input type="submit" style="background-color: #69c6ba; color: white;" name="signup" id="signup" class="form-submit" value="S'incrire"/>
+                      </div>
+                  </form>
+              </div>
+              <div class="signup-image">
+                  <figure><img src="/assets/signup-image.jpg" alt="sing up image"></figure>
+                  <a href="#" class="signup-image-link">J'ai déjà un Compte</a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,62 @@
+<div class="col-md-6" style="width: 700;">
+  <div class="product-card d-flex flex-row align-items-center">
+    <div class="">
+      <form >
+        <div class="form-group">
+          <label for="id">Identifant</label>
+          <input id="prenom" class="form-control" type="number" formControlName="identifia">
+
+          <label for="prenom">Prenom</label>
+          <input id="prenom" class="form-control" type="text" formControlName="prenom">
+
+
+
+          <label for="idms">Nom </label>
+          <input id="idms" class="form-control" type="text" formControlName="nom">
+
+
+          <label for="idtel">Telephone</label>
+          <input id="idtel" class="form-control" type="numTel" formControlName="phone" >
+
+
+          <label for="idad">Adresse</label>
+          <input id="idad" class="form-control" type="text" formControlName="adresse">
+
+
+          <label for="idad">Email</label>
+          <input id="idad" class="form-control" type="text" formControlName="email" >
+
+
+          <label for="idvi">Moyen Transport</label>
+          <select class="form-control" id="exampleFormControlSelect2" formControlName="moyen_transport" value="Voiture" placeholder="Voiture" name="transport" >
+            <option>Voiture</option>
+            <option>Moto</option>
+          </select>
+
+        </div>
+         <div class="form-group">
+          <div class="input-group col-xs-12">
+            <input type="file" class="form-control file-upload-info" name="photo"  accept="image/*"   placeholder="Upload Image">
+          </div>
+        </div>
+          <!--ng-container *ngIf="!charger;else sinon">
+            <label class="image-upload-container btn btn-bwm">
+              <span>Selectionnez une image</span>
+              <input #imageInput type="file" accept="image/*" >
+            </label>
+            <button class="btn btn-success" type="button"
+              [disabled]="encharge || selectedFile==null">Valider l'image </button>
+          </ng-container>
+          <ng-template #sinon>
+            <div class="text-center"> <img *ngIf="magasin.photo!=null" [src]="magasin.photo" width="200"> </div>
+            <button class="btn btn-success" type="button"  [disabled]="encharge">Changer l'image
+            </button>
+          </ng-template-->
+          <button type="submit" class="btn btn-success mr-2"  >Submit</button>
+          <button class="btn btn-primary">Annuler</button>
+
+      </form>
+</div>
+
+  </div>
+</div>

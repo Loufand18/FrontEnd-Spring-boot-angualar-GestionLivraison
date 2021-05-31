@@ -1,0 +1,159 @@
+
+<div class="container-scroller">
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex justify-content-center">
+      <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+        <a class="navbar-brand brand-logo" href="/home"><img src="/assets/logo.png" alt="logo"/>
+
+        </a>
+        <h6>MAGUINI</h6>
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-sort-variant"></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+      <ul class="navbar-nav mr-lg-4 w-100">
+        <li class="nav-item nav-search d-none d-lg-block w-100">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="search">
+                <i class="mdi mdi-magnify"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-right">
+
+        <li class="nav-item nav-profile dropdown">
+
+          <div class="item-thumbnail" class="py-1">
+            <img src="/assets/iconpro.jpg" style="width:30px;" alt="image" class="profile-pic">
+
+        </div>
+            <span class="nav-profile-name" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent" >{{nom}}</span>
+        </li>
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="/login-admin" data-toggle="dropdown">
+            <i  (click)="logout()" class="mdi mdi-logout"></i>
+            <span (click)="logout()" > Deconnexion</span>
+          </a>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " href="/home">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Accueil</span>
+          </a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/liste-livreur">
+            <i class="mdi mdi-account-multiple menu-icon"></i>
+            <span class="menu-title">Les livreurs</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ajoutlivreur">
+            <i class="mdi mdi-account-plus menu-icon"></i>
+            <span class="menu-title">Ajout Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/noter-livreur">
+            <i class=" mdi mdi-brush menu-icon"></i>
+            <span class="menu-title">Noter Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/trajet">
+            <i class="mdi mdi-truck-delivery menu-icon"></i>
+            <span class="menu-title">Trajets</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="/register-login" aria-expanded="false" aria-controls="auth">
+            <i class="mdi mdi-account menu-icon"></i>
+            <span class="menu-title">Nouveau Admin</span>
+
+          </a>
+
+        </li>
+
+      </ul>
+    </nav>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+
+
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Ajouter un livreur</h4>
+                <form class="forms-sample" #loginForm="ngForm" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Prenom</label>
+                    <input type="text" class="form-control" id="exampleInputName1" [(ngModel)]="rvgene.prenom "name="prenom" placeholder="Prenom">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName2">Nom</label>
+                    <input type="text" class="form-control" id="exampleInputName2" [(ngModel)]="rvgene.nom" name="nom" placeholder="Nom">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName3">Adresse</label>
+                    <input type="text" class="form-control" id="exampleInputName3" name="adresse" [(ngModel)]="rvgene.adresse" placeholder="Adresse">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName4">Telephone</label>
+                    <input type="text" class="form-control" id="exampleInputName4" [(ngModel)]="rvgene.numTel" placeholder="Telephone" name="telephone">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail3" [(ngModel)]="rvgene.email" name="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect2">Moyen de transport</label>
+                    <select class="form-control" id="exampleFormControlSelect2" value="Voiture" placeholder="Voiture" [(ngModel)]="rvgene.moyen_transport" name="transport" >
+                      <option>Voiture</option>
+                      <option>Moto</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Photo</label>
+                    <div class="input-group col-xs-12">
+                      <input type="file" class="form-control file-upload-info" name="photo"  (change)="onFileChanged($event)" accept="image/*"   placeholder="Upload Image">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn  mr-2" style="background-color: #69c6ba; color: white;" (click)="Valider()">Enregistrer</button>
+                  <button class="btn btn-light" (click)="Cancel()">Annuler</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>

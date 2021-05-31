@@ -1,0 +1,192 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="navbar-brand-wrapper d-flex justify-content-center">
+      <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+        <a class="navbar-brand brand-logo" href="/home"><img src="/assets/logo.png" alt="logo"/>
+
+        </a>
+        <h6>MAGUINI</h6>
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-sort-variant"></span>
+        </button>
+      </div>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+      <ul class="navbar-nav mr-lg-4 w-100">
+        <li class="nav-item nav-search d-none d-lg-block w-100">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="search">
+                <i class="mdi mdi-magnify"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-right">
+
+        <li class="nav-item nav-profile dropdown">
+
+          <div class="item-thumbnail" class="py-1">
+            <img src="/assets/iconpro.jpg" style="width:30px;" alt="image" class="profile-pic">
+
+        </div>
+            <span class="nav-profile-name" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent" >{{nom}}</span>
+        </li>
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown" id="notificationDropdown" href="/login-admin" data-toggle="dropdown">
+            <i (click)="logout()"  class="mdi mdi-logout"></i>
+            <span (click)="logout()" > Deconnexion</span>
+          </a>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " href="/home">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Accueil</span>
+          </a>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/liste-livreur">
+            <i class="mdi mdi-account-multiple menu-icon"></i>
+            <span class="menu-title">Les livreurs</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ajoutlivreur">
+            <i class="mdi mdi-account-plus menu-icon"></i>
+            <span class="menu-title">Ajout Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/noter-livreur">
+            <i class=" mdi mdi-brush menu-icon"></i>
+            <span class="menu-title">Noter Livreur</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/trajet">
+            <i class="mdi mdi-truck-delivery menu-icon"></i>
+            <span class="menu-title">Trajets</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="/register-login" aria-expanded="false" aria-controls="auth">
+            <i class="mdi mdi-account menu-icon"></i>
+            <span class="menu-title">Nouveau Admin</span>
+
+          </a>
+
+        </li>
+
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Noter Livreur</h4>
+                <form class="forms-sample" #loginForm="ngForm">
+                  <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Identifiant</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" name="identifiant" [(ngModel)]="idlivreur"  id="exampleInputUsername2" placeholder="Source">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="exampleInputUsername2"  class="col-sm-3 col-form-label">Note(1-100)</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" name="note" [(ngModel)]="note" id="exampleInputUsername2" placeholder="Destination">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary mr-2" (click)="Valider()" >Valider</button>
+                  <button class="btn btn-light" (click)="Cancel()">Annuler</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"> notes des livreurs</h4>
+
+                <div class="table-responsive pt-3">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr >
+                        <th>
+                          #
+                        </th>
+                        <th>
+                          Nom
+                        </th>
+                        <th>
+                          Note
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let rv of livreur">
+                        <td>
+                             {{rv.id}}
+                        </td>
+                        <td>
+                            {{rv.prenom}} {{rv.nom}}
+                        </td>
+                        <td>
+                              <ng-container *ngIf="rv.note!=null; else elseTemplate">
+                                {{rv.note}}
+                             </ng-container>
+                             <ng-template #elseTemplate>
+                              Pas encore de note
+                             </ng-template>
+
+
+                        </td>
+
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from Bootstrapdash.com</span>
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+

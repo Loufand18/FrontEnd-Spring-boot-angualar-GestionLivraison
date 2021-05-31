@@ -21,10 +21,16 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "mdi.svg", "input": "node_modules/@mdi/angular-material/", "output": "./assets" }
+
+
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "./node_modules/mdi/css/materialdesignicons.min.css"
             ],
             "scripts": []
           },
@@ -88,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ProjetAngular"
+    }
+  },
+  "defaultProject": "ProjetAngular",
+  "cli": {
+    "analytics": "372699b6-284f-46f0-9f73-299cea853e84"
+  }
 }
